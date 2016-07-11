@@ -51,3 +51,7 @@ public class VolatileExample extends Thread {
 
  　　3）如果是写操作，它会导致其他CPU中对应的缓存行无效。
  */
+/**
+ * http://blog.csdn.net/wxwzy738/article/details/43238089
+ * http://jiangzhengjun.iteye.com/blog/652532
+ */
