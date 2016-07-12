@@ -9,7 +9,7 @@ package cn.freshz.demo.thread.lock;
 public class UnReentrantLock {
     private boolean isLocked = false;
     public synchronized void lock() throws InterruptedException{
-        while(isLocked){    //不用if，而用while，是为了防止假唤醒
+        while(isLocked){    //不用if，而用while，是为了防止假唤醒，这通常作为对基础平台语义的让步
             wait();
         }
         isLocked = true;
