@@ -6,16 +6,16 @@ package cn.freshz.demo.thread;
 public class VolatileTest {
 	public static void main(String[] args) {
 		while (!Thread.currentThread().isInterrupted()) {
-			final VolatileSample2 s = new VolatileSample2();
+			final VolatileSample2 vs2 = new VolatileSample2();
 			final Thread w = new Thread(){
 				public void run() {
-					s.writer();
+					vs2.writer();
 				}
 			};
 
 			final Thread r = new Thread(){
 				public void run() {
-					s.reader();
+					vs2.reader();
 				}
 			};
 			r.start();
@@ -28,8 +28,8 @@ public class VolatileTest {
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-					if (s.result.equals("x=0,v=true")) {
-						System.out.println(this.getName() + " " + s.result);
+					if (vs2.result.equals("x=0,v=true")) {
+						System.out.println(this.getName() + " " + vs2.result);
 						System.exit(0);
 					}
 				}
@@ -46,8 +46,9 @@ class VolatileSample2 {
 	String result;
 
 	public void writer() {
-		x = 42;
-		v = true;
+		x = 42;				//第1步
+		v = true;			//第2步
+							//则单线程中不会出现 v为true时 x为0
 	}
 
 	public void reader() {
