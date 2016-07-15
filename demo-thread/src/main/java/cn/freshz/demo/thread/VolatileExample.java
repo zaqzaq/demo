@@ -30,6 +30,9 @@ public class VolatileExample extends Thread {
  * 只有在对变量读取频率很高的情况下，虚拟机才不会及时回写主内存，而当频率没有达到虚拟机认为的高频率时，
  * 普通变量和volatile是同样的处理逻辑。如在每个循环中执行System.out.println(1)加大了读取变量的时间间隔，
  * 使虚拟机认为读取频率并不那么高，所以实现了和volatile的效果
+ * 
+ * -Xcomp  -Xint
+ * 
  * volatile的效果在jdk1.2及之前很容易重现，但随着虚拟机的不断优化，如今的普通变量的可见性已经不是那么严重的问题了，
  * 这也是volatile如今确实不太有使用场景
  */
