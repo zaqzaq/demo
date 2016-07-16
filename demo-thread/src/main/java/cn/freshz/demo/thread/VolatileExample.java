@@ -36,6 +36,9 @@ public class VolatileExample extends Thread {
  * 虚拟机决定函数是否需要编译执行的依据是判断该函数，是否为热点代码。
  * 如果函数的调用频率很高，被反复使用，那么就会被认为是热点，热点代码就会被编译执行。
  * 
+ * 查看JIT编译结果
+ * -XX:+UnlockDiagnosticVMOptions -XX:PrintAssemblyOptions=hsdis-print-bytes -XX:CompileCommand=print,*VolatileExample.run
+ * 
  * volatile的效果在jdk1.2及之前很容易重现，但随着虚拟机的不断优化，如今的普通变量的可见性已经不是那么严重的问题了，
  * 这也是volatile如今确实不太有使用场景
  */
