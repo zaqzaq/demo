@@ -49,3 +49,16 @@ public final class FalseSharing implements Runnable {
 		public long p1, p2, p3, p4, p5, p6; // 注释
 	}
 }
+
+/**
+ * LinkedTransferQueue
+static final class PaddedAtomicReference <T> extends AtomicReference <T> {
+    Object p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, pa, pb, pc, pd, pe;
+    PaddedAtomicReference(T r) {
+        super(r);
+    }
+}
+
+16个地址的长度，刚好占满一个cache line的长度。
+确保两个引用，不在同一cache line上，防止多锁竞争。
+ * /
