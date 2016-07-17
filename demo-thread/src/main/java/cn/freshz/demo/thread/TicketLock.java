@@ -7,13 +7,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 * 每次都要查询一个serviceNum 服务号，影响性能（必须要到主内存读取，并阻止其他cpu修改）。
 */
 public class TicketLock {
-    private AtomicInteger                     serviceNum = new AtomicInteger();
-    private AtomicInteger                     ticketNum  = new AtomicInteger();
+    private AtomicInteger                     serviceNum = new AtomicInteger(); // 服务号
+    private AtomicInteger                     ticketNum  = new AtomicInteger(); // 排队号
     private static final ThreadLocal<Integer> LOCAL      = new ThreadLocal<Integer>();
 
     public void lock() {
+        // 首先原子性地获得一个排队号
         int myticket = ticketNum.getAndIncrement();
         LOCAL.set(myticket);
+         // 只要当前服务号不是自己的就不断轮询
         while (myticket != serviceNum.get()) {
         }
 
@@ -21,6 +23,7 @@ public class TicketLock {
 
     public void unlock() {
         int myticket = LOCAL.get();
+        // 只有当前线程拥有者才能释放锁
         serviceNum.compareAndSet(myticket, myticket + 1);
     }
 }
