@@ -2,6 +2,8 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 /**
 * 解决  TicketLock 每次都要查询一个serviceNum 服务号，影响性能（必须要到主内存读取，并阻止其他cpu修改）。
 *CLHLock 和MCSLock 则是两种类型相似的公平锁，采用链表的形式进行排序 
+* 
+* CLHlock是不停的查询前驱变量， 导致不适合在NUMA 架构下使用（在这种结构下，每个线程分布在不同的物理内存区域）
 */
 public class CLHLock {
     public static class CLHNode {
