@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 */
 public class CLHLock {
     public static class CLHNode {
-        private volatile boolean isLocked = true;
+        private volatile boolean isLocked = true;// 默认是在等待锁
     }
 
     @SuppressWarnings("unused")
@@ -19,8 +19,9 @@ public class CLHLock {
     public void lock() {
         CLHNode node = new CLHNode();
         LOCAL.set(node);
-        CLHNode preNode = UPDATER.getAndSet(this, node);
+        CLHNode preNode = UPDATER.getAndSet(this, node);//  把this里的"tail" 值设置成currentThreadCLHNode
         if (preNode != null) {
+            //已有线程占用了锁，进入自旋
             while (preNode.isLocked) {
             }
             preNode = null;
@@ -31,8 +32,9 @@ public class CLHLock {
     public void unlock() {
         CLHNode node = LOCAL.get();
         if (!UPDATER.compareAndSet(this, node, null)) {
-            node.isLocked = false;
+            node.isLocked = false;// 改变状态，让后续线程结束自旋
         }
+         // 如果队列里只有当前线程，则释放对当前线程的引用（for GC）。
         node = null;
     }
 }
