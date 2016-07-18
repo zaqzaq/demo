@@ -3,7 +3,7 @@ package cn.freshz.demo.thread;
 /**
  * 演示 CPU 指令重排序(happen-before)
  */
-public class VolatileTest {
+public class ReOrderTest {
 	public static void main(String[] args) {
 		while (!Thread.currentThread().isInterrupted()) {
 			final VolatileSample2 vs2 = new VolatileSample2();
