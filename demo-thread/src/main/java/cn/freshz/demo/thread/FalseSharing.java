@@ -1,5 +1,8 @@
 package cn.freshz.demo.thread;
 
+/**
+ * 演示 CPU 伪共享
+ */
 public final class FalseSharing implements Runnable {
 	public static int NUM_THREADS = 4; // change
 	public final static long ITERATIONS = 500L * 1000L * 1000L;

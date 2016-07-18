@@ -3,7 +3,7 @@ package cn.freshz.demo.thread.lock;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
-*自旋锁
+* 最粗糙的 自旋锁
 */
 public class SpinLock {
 

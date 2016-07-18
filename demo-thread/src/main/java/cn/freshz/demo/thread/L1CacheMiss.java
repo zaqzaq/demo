@@ -1,3 +1,8 @@
+package cn.freshz.demo.thread;
+
+/**
+ * 演示 缓存行 不命中
+ */
 public class L1CacheMiss {
 	private static final int RUNS = 10;
 	private static final int DIMENSION_1 = 1024 * 1024;

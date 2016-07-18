@@ -1,5 +1,8 @@
 package cn.freshz.demo.thread;
 
+/**
+ * 演示 valatitle 关键字
+ */
 public class VolatileExample extends Thread {
     //设置类静态变量,各线程访问这同一共享变量
     private static boolean flag = false;

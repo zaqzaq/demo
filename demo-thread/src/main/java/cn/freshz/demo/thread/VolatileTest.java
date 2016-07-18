@@ -1,7 +1,7 @@
 package cn.freshz.demo.thread;
 
 /**
- * 指令重排序(happen-before)
+ * 演示 CPU 指令重排序(happen-before)
  */
 public class VolatileTest {
 	public static void main(String[] args) {
@@ -28,6 +28,8 @@ public class VolatileTest {
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
+
+					//指令重排的后果
 					if (vs2.result.equals("x=0,v=true")) {
 						System.out.println(this.getName() + " " + vs2.result);
 						System.exit(0);

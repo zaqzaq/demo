@@ -1,7 +1,11 @@
+package cn.freshz.demo.thread;
 
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.LockSupport;
 
+/**
+ * 演示 操作系统 对 线程上下文切换
+ */
 public final class ContextSwitchTest {
 	static final int RUNS = 3;
 	static final int ITERATES = 1000000;
