@@ -24,11 +24,11 @@ public class L1CacheMiss {
 		final long start = System.nanoTime();
 		long sum = 0L;
 		for (int r = 0; r < RUNS; r++) {
-//			for (int j = 0; j < DIMENSION_2; j++) {
-//				for (int i = 0; i < DIMENSION_1; i++) {
-//					sum += longs[i][j];
-//				}
-//			}
+			/*for (int j = 0; j < DIMENSION_2; j++) {
+				for (int i = 0; i < DIMENSION_1; i++) {
+					sum += longs[i][j];
+				}
+			}*/
 
 			for (int i = 0; i < DIMENSION_1; i++) {
 				for (int j = 0; j < DIMENSION_2; j++) {
