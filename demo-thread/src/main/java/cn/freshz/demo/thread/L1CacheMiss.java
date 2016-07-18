@@ -11,7 +11,6 @@ public class L1CacheMiss {
 	private static long[][] longs;
 
 	public static void main(String[] args) throws Exception {
-		Thread.sleep(10000);
 		longs = new long[DIMENSION_1][];
 		for (int i = 0; i < DIMENSION_1; i++) {
 			longs[i] = new long[DIMENSION_2];
