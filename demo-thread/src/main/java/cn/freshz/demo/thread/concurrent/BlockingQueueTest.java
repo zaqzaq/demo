@@ -11,36 +11,36 @@ public class BlockingQueueTest {
 					while(true){
 						try {
 							Thread.sleep((long)(Math.random()*1000));
-							System.out.println(Thread.currentThread().getName() + "׼��������!");							
+							System.out.println(Thread.currentThread().getName() + "准备放数据!");
 							queue.put(1);
-							System.out.println(Thread.currentThread().getName() + "�Ѿ��������ݣ�" + 							
-										"����Ŀǰ��" + queue.size() + "������");
+							System.out.println(Thread.currentThread().getName() + "已经放了数据，" +
+									"队列目前有" + queue.size() + "个数据");
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
 
 					}
 				}
-				
+
 			}.start();
 		}
-		
+
 		new Thread(){
 			public void run(){
 				while(true){
 					try {
-						//���˴���˯��ʱ��ֱ��Ϊ100��1000���۲����н��
+						//将此处的睡眠时间分别改为100和1000，观察运行结果
 						Thread.sleep(1000);
-						System.out.println(Thread.currentThread().getName() + "׼��ȡ����!");
+						System.out.println(Thread.currentThread().getName() + "准备取数据!");
 						queue.take();
-						System.out.println(Thread.currentThread().getName() + "�Ѿ�ȡ�����ݣ�" + 							
-								"����Ŀǰ��" + queue.size() + "������");					
+						System.out.println(Thread.currentThread().getName() + "已经取走数据，" +
+								"队列目前有" + queue.size() + "个数据");
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
 				}
 			}
-			
-		}.start();			
+
+		}.start();
 	}
 }
