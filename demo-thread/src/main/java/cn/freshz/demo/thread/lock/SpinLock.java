@@ -1,3 +1,7 @@
+package cn.freshz.demo.thread.lock;
+
+import java.util.concurrent.atomic.AtomicReference;
+
 /**
 *自旋锁
 */

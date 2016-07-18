@@ -1,3 +1,5 @@
+package cn.freshz.demo.thread.lock;
+
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 /**
 * 解决  TicketLock 每次都要查询一个serviceNum 服务号，影响性能（必须要到主内存读取，并阻止其他cpu修改）。

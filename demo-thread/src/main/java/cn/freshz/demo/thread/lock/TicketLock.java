@@ -1,4 +1,4 @@
-package com.alipay.titan.dcc.dal.entity;
+package cn.freshz.demo.thread.lock;
 
 import java.util.concurrent.atomic.AtomicInteger;
 /**
