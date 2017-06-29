@@ -14,7 +14,7 @@ public final class FalseSharing implements Runnable {
 	}
 
 	public static void main(final String[] args) throws Exception {
-		Thread.sleep(10000);
+	//	Thread.sleep(10000);
 		System.out.println("starting....");
 		if (args.length == 1) {
 			NUM_THREADS = Integer.parseInt(args[0]);

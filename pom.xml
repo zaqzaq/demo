@@ -10,6 +10,11 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>demo-thread</module>
+        <module>demo-redis</module>
+        <module>demo- dataStructure</module>
+        <module>jdk8</module>
+        <module>crack</module>
+        <module>demo-class</module>
     </modules>
 
 

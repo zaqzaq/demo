@@ -30,7 +30,7 @@ public class ReOrderTest {
 					}
 
 					//指令重排的后果
-					if (vs2.result.equals("x=0,v=true")) {
+					if (vs2.result.equals("v=true,x=0")) {
 						System.out.println(this.getName() + " " + vs2.result);
 						System.exit(0);
 					}
@@ -54,8 +54,8 @@ class VolatileSample2 {
 	}
 
 	public void reader() {
-		result = "x=" + x + ",v=" + v;
-		//result = "v=" + v + ",x=" + x;
+		//result = "x=" + x + ",v=" + v;
+		result = "v=" + v + ",x=" + x;
 	}
 
 }

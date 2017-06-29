@@ -10,7 +10,7 @@ public class VolatileExample extends Thread {
     //无限循环,等待flag变为true时才跳出循环
     public void run() {
         while (!flag) {
-            //System.out.println(123);
+//            System.out.println(123);
         }
     }
 
